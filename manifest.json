@@ -1,0 +1,12 @@
+{
+    "name": "YouTube Append Video Time In URL",
+    "description": "Append the video time of YouTube in URL to save video progress.",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": ["https://*.youtube.com/*"],
+            "js": ["youtube.com.js"]
+        }
+    ]
+}
