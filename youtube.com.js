@@ -23,13 +23,16 @@ function observeYoutubeVideoTimeChange(videoURL) {
         const videoTag = document.querySelector("#movie_player video");
 
         const videoTime = Math.floor(videoTag.currentTime);
+        const videoDuration = Math.floor(videoTag.duration);
 
         if (HTML5VideoPlayer.classList.contains("ad-showing")) {
             return;
         }
 
         if (videoTime !== lastVideoTime) {
-            if (lastVideoTime) {
+            if (videoTime === videoDuration) {
+                pushTimeToVideoURL(videoURL, videoTime + "-eof");
+            } else if (lastVideoTime) {
                 pushTimeToVideoURL(videoURL, videoTime);
             }
 
