@@ -29,7 +29,7 @@ function observeYoutubeVideoTimeChange(videoURL) {
             return;
         }
 
-        if (videoTime !== lastVideoTime) {
+        if (videoTime && videoTime !== lastVideoTime) {
             if (videoTime === videoDuration) {
                 pushTimeToVideoURL(videoURL, videoTime + "-eof");
             } else if (lastVideoTime) {
